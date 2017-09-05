@@ -7,10 +7,17 @@
 </head>
 <body ng-controller="MainController">
     
-    {{thisAppIsBroken}}
+	<div class="users" ng-repeat="user in users" ng-class="{favorite: user.isFavorite}">
+		<img ng-src={{user.avatar}}/>
+		Name: {{user.first_name}} {{user.last_name}} <br>
+		ID: {{user.id}} <br>
+		<button type="button" name="button" ng-click="toggleFavorite(user.id)">Favorite</button>
+		<hr>
+	</div>
     
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
      <script src="app.js"></script>
      <script src="controller.js"></script>
+     <script src="mainService.js"></script>
 </body>
 </html>
